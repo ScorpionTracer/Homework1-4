@@ -17,7 +17,6 @@ public class TicTacToe {
   private static final Random random = new Random();
 
   public static void main(String[] args) {
-
     prepareGame();
     playGame();
     System.out.println("Игра окончена");
@@ -69,9 +68,7 @@ public class TicTacToe {
     return true;
   }
 
-
   private static boolean checkWin(char symbol) {
-
     if (!linesAndColsChecksCheck(symbol)) {
       return checkDiagonals(symbol);
     }
@@ -108,15 +105,12 @@ public class TicTacToe {
 
 
   private static void aiTurn() {
-
     if (!aiCheckLinesAndCols() && !aiCheckDiagonals()) {
       aiRandom();
     }
-
   }
 
   private static boolean aiCheckDiagonals() {
-
     int oneDiagonal = 0, twoDiagonal = 0;
     var indexOneDiagonal = 0;
     int begTwoDiagonal = 0, endTwoDiagonal = 0;
@@ -150,7 +144,6 @@ public class TicTacToe {
       rowIndex = random.nextInt(SIZE);
       colIndex = random.nextInt(SIZE);
     } while (!isCellValid(rowIndex, colIndex));
-
     map[rowIndex][colIndex] = DOT_O;
   }
 
@@ -184,7 +177,6 @@ public class TicTacToe {
   }
 
   private static void humanTurn() {
-
     int rowIndex = -1, colIndex = -1;
 
     do {
@@ -200,12 +192,10 @@ public class TicTacToe {
         System.out.println("Были введены некорректные данные");
       }
     } while (!isCellValid(rowIndex, colIndex));
-
     map[rowIndex][colIndex] = DOT_X;
-
   }
 
-  @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+
   private static boolean isCellValid(int rowIndex, int colIndex) {
     if (rowIndex < 0 || rowIndex >= SIZE || colIndex < 0 || colIndex >= SIZE) {
       return false;
@@ -241,5 +231,4 @@ public class TicTacToe {
       Arrays.fill(row, DOT_EMPTY);
     }
   }
-
 }
